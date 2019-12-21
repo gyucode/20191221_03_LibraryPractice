@@ -20,6 +20,7 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+
         callBtn.setOnClickListener {
 
 //            전화 권한 요청(3) =>획득 완료되면(1) => 인텐트를 이용해서 전화걸기(2)
@@ -38,6 +39,7 @@ class MainActivity : BaseActivity() {
             TedPermission.with(mContext)
                 .setPermissionListener(permissionListener)
                 .setDeniedMessage("권한 설정이 필요합니다")
+                .setRationaleMessage("바로 전화를 걸기 위해 필요")
                 .setPermissions(Manifest.permission.CALL_PHONE)  // Ctrl + Alt + o 쓸데없이 임포트된 클래스 제거 단축키
                 .check()
         }
